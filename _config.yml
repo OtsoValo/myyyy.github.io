@@ -2,6 +2,6 @@ safe:        true
 lsi:         false
 highlighter: rouge
 markdown:    kramdown
-url:         https://benkurtovic.com
+url:         https://byetimes.com
 
 theme: jekyll-theme-dinky
