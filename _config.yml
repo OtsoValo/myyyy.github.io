@@ -3,3 +3,5 @@ lsi:         false
 highlighter: rouge
 markdown:    kramdown
 url:         https://benkurtovic.com
+
+theme: jekyll-theme-dinky
