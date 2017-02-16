@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://benkurtovic.com/</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2016/04/25/stack-smashing.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2015/01/28/python-object-replacement.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2014/08/20/copyvio-detector.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2014/06/01/obfuscating-hello-world.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2012/01/29/earwigbot-and-toolserver-updates.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2011/08/23/earwigbot-progress-page-editing.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2011/08/05/earwigbot-progress-wiki-toolset.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://benkurtovic.com/2011/06/23/oh-look-a-blog.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+</urlset>
