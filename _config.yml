@@ -4,4 +4,10 @@ highlighter: rouge
 markdown:    kramdown
 url:         https://byetimes.com
 
+permalink: /:categories/:year/:month/:day/:title.html
+
 theme: jekyll-theme-dinky
+
+# jekyll寫入文件路径
+destination: _site
+

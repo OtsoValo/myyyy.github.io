@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://benkurtovic.com</id>
+<!-- <feed xmlns="http://www.w3.org/2005/Atom"> -->
+<feed>
+    <id>https://byetimes.com</id>
     <title>Ben Kurtovic</title>
-    <updated>2017-02-16T13:05:38+08:00</updated>
-    <link href="https://benkurtovic.com/"/>
+    <updated>2017-02-17T19:51:19+08:00</updated>
+    <link href="https://byetimes.com/"/>
     <link rel="self" type="application/atom+xml" href="/atom.xml"/>
     <author>
         <name>Ben Kurtovic</name>
@@ -14,7 +15,63 @@
     <rights>© 2011–2017 Ben Kurtovic</rights>
     
         <entry>
-            <id>https://benkurtovic.com/2016/04/25/stack-smashing</id>
+            <id>https://byetimes.com/2017/02/17/test</id>
+            <title>Test</title>
+            <updated>2017-02-17T00:00:00+08:00</updated>
+            <published>2017-02-17T00:00:00+08:00</published>
+            <link rel="alternate" type="text/html" href="/2017/02/17/test.html"/>
+            <author>
+                <name>Ben Kurtovic</name>
+                <email>ben.kurtovic@gmail.com</email>
+                <uri>https://benkurtovic.com/</uri>
+            </author>
+            <summary>Test Page</summary>
+            <content type="html">&lt;p&gt;Not much to say about recent work, but I’d like to share a lecture I wrote for
+the honors section of the
+&lt;a href=&quot;https://cs.illinois.edu/courses/profile/CS241&quot;&gt;systems programming course&lt;/a&gt;
+I am helping teach. It’s a broad overview on
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Stack_buffer_overflow&quot;&gt;stack buffer overflow&lt;/a&gt;
+exploits and common defenses, for the newbie systems programmer, with a few
+pretty diagrams that I spent way too much time on…&lt;/p&gt;
+
+&lt;p&gt;(Apologies about the PDF viewer if it’s not looking quite right. &lt;a href=&quot;/static/content/stack-smashing.pdf&quot;&gt;You can view the slides directly&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;object data=&quot;/static/content/stack-smashing.pdf#zoom=150&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600px&quot;&gt;
+   &lt;p&gt;&lt;a href=&quot;/static/content/stack-smashing.pdf&quot;&gt;View PDF&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <id>https://byetimes.com/2016/05/25/stack-smashing</id>
+            <title>Stack wSmashing</title>
+            <updated>2016-05-25T00:00:00+08:00</updated>
+            <published>2016-05-25T00:00:00+08:00</published>
+            <link rel="alternate" type="text/html" href="/2016/05/25/stack-smashing.html"/>
+            <author>
+                <name>Ben Kurtovic</name>
+                <email>ben.kurtovic@gmail.com</email>
+                <uri>https://benkurtovic.com/</uri>
+            </author>
+            <summary>wSlides from a lecture on low-level software exploits and defenses</summary>
+            <content type="html">&lt;p&gt;Not much to say about recent work, but I’d like to share a lecture I wrote for
+the honors section of the
+&lt;a href=&quot;https://cs.illinois.edu/courses/profile/CS241&quot;&gt;systems programming course&lt;/a&gt;
+I am helping teach. It’s a broad overview on
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Stack_buffer_overflow&quot;&gt;stack buffer overflow&lt;/a&gt;
+exploits and common defenses, for the newbie systems programmer, with a few
+pretty diagrams that I spent way too much time on…&lt;/p&gt;
+
+&lt;p&gt;(Apologies about the PDF viewer if it’s not looking quite right. &lt;a href=&quot;/static/content/stack-smashing.pdf&quot;&gt;You can view the slides directly&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;object data=&quot;/static/content/stack-smashing.pdf#zoom=150&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;600px&quot;&gt;
+   &lt;p&gt;&lt;a href=&quot;/static/content/stack-smashing.pdf&quot;&gt;View PDF&lt;/a&gt;&lt;/p&gt;
+&lt;/object&gt;
+</content>
+        </entry>
+    
+        <entry>
+            <id>https://byetimes.com/2016/04/25/stack-smashing</id>
             <title>Stack Smashing</title>
             <updated>2016-04-25T00:00:00+08:00</updated>
             <published>2016-04-25T00:00:00+08:00</published>
@@ -42,7 +99,7 @@ pretty diagrams that I spent way too much time on…&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2015/01/28/python-object-replacement</id>
+            <id>https://byetimes.com/2015/01/28/python-object-replacement</id>
             <title>Finding and Replacing Objects in Python</title>
             <updated>2015-01-28T00:00:00+08:00</updated>
             <published>2015-01-28T00:00:00+08:00</published>
@@ -844,7 +901,7 @@ requirements as each other.”&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2014/08/20/copyvio-detector</id>
+            <id>https://byetimes.com/2014/08/20/copyvio-detector</id>
             <title>Copyvio Detector</title>
             <updated>2014-08-20T00:00:00+08:00</updated>
             <published>2014-08-20T00:00:00+08:00</published>
@@ -981,7 +1038,7 @@ URLs are skipped and the check short-circuits.&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2014/06/01/obfuscating-hello-world</id>
+            <id>https://byetimes.com/2014/06/01/obfuscating-hello-world</id>
             <title>Obfuscating &quot;Hello world!&quot;</title>
             <updated>2014-06-01T00:00:00+08:00</updated>
             <published>2014-06-01T00:00:00+08:00</published>
@@ -1773,7 +1830,7 @@ all the parts together:&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2012/01/29/earwigbot-and-toolserver-updates</id>
+            <id>https://byetimes.com/2012/01/29/earwigbot-and-toolserver-updates</id>
             <title>EarwigBot and Toolserver Updates</title>
             <updated>2012-01-29T00:00:00+08:00</updated>
             <published>2012-01-29T00:00:00+08:00</published>
@@ -1879,7 +1936,7 @@ worth it in the end.&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2011/08/23/earwigbot-progress-page-editing</id>
+            <id>https://byetimes.com/2011/08/23/earwigbot-progress-page-editing</id>
             <title>EarwigBot Progress&amp;#58; Page Editing</title>
             <updated>2011-08-23T00:00:00+08:00</updated>
             <published>2011-08-23T00:00:00+08:00</published>
@@ -1915,7 +1972,7 @@ actually edit Wikipedia!&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2011/08/05/earwigbot-progress-wiki-toolset</id>
+            <id>https://byetimes.com/2011/08/05/earwigbot-progress-wiki-toolset</id>
             <title>EarwigBot Progress&amp;#58; Wiki Toolset</title>
             <updated>2011-08-05T00:00:00+08:00</updated>
             <published>2011-08-05T00:00:00+08:00</published>
@@ -2042,7 +2099,7 @@ it seems to be working so far.&lt;/p&gt;
         </entry>
     
         <entry>
-            <id>https://benkurtovic.com/2011/06/23/oh-look-a-blog</id>
+            <id>https://byetimes.com/2011/06/23/oh-look-a-blog</id>
             <title>Oh Look, A Blog!</title>
             <updated>2011-06-23T00:00:00+08:00</updated>
             <published>2011-06-23T00:00:00+08:00</published>

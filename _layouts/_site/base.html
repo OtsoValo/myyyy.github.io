@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>404 &ndash; good-bye</title>
-        <meta name="description" content="404 &#124; Ben Kurtovic's blog">
+        <title>{% if page.title != "Home" %}{{ page.title }} &ndash; {% endif %}good-bye</title>
+        <meta name="description" content="{% if page.title == 'Home' %}Ben Kurtovic's personal projects and a short blog on software{% else %}{% if page.description %}{{ page.description }}{% else %}{{ page.title }}{% endif %} &#124; Ben Kurtovic's blog{% endif %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="/static/favicon.png" />
         <link rel="stylesheet" href="/static/main.css" />
@@ -22,13 +22,9 @@
             </a>
         </div>
         <div id="container">
-            <h1>&iexcl;puno&#8498; &#647;o&#7438; &#58;&#5421;0&#5421;</h1>
-<div id="content">
-    <p>The page you're looking for doesn't exist. You're welcome to <a href="/">look around a bit</a> and try to find it.</p>
-</div>
-
+            {{ content }}
             <div id="footer">
-                <p>Copyright &copy; 2011&ndash;2017 再&nbsp;见 &bull; <a href="//github.com/earwig/earwig.github.io">View&nbsp;Source</a> &bull; <a href="http://validator.w3.org/check?uri=referer">Valid&nbsp;HTML5</a></p>
+                <p>Copyright &copy; 2011&ndash;{{ site.time | date: "%Y" }} 再&nbsp;见 &bull; <a href="//github.com/earwig/earwig.github.io">View&nbsp;Source</a> &bull; <a href="http://validator.w3.org/check?uri=referer">Valid&nbsp;HTML5</a></p>
             </div>
         </div>
     </body>
