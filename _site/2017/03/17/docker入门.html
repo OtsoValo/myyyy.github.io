@@ -34,6 +34,7 @@
     </ul>
     <div id="post">
         <h1 id="docker">docker的环境配置</h1>
+
 <blockquote>
   <p>sudo apt-get update
 sudo apt-get install docker.io</p>
@@ -57,20 +58,23 @@ sudo apt-get install docker.io</p>
 <p>docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash</p>
 
 <h1 id="section-1">编写脚本文件</h1>
-<p>name:up.sh
-‘’’
-#!/bin/bash</p>
 
-<p>docker stop web
+<p>```
+name:up.sh
+#!/bin/bash
+docker stop web
 docker rm -v web</p>
 
 <p>docker run –name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
-‘’’
-#命令
-1. 退出docker容器(非中断模式)
-	* ctrl + P ctrl + q</p>
+```</p>
 
+<h1 id="section-2">命令</h1>
 <ol>
+  <li>退出docker容器(非中断模式)
+    <ul>
+      <li>ctrl + P ctrl + q</li>
+    </ul>
+  </li>
   <li>进入docker image
     <ul>
       <li>docker exec -it container_id bash #不会终止</li>
@@ -98,7 +102,7 @@ docker rm -v web</p>
   </li>
 </ol>
 
-<h1 id="section-2">参考链接</h1>
+<h1 id="section-3">参考链接</h1>
 <blockquote>
   <p><a href="http://www.linuxidc.com/Linux/2015-05/117510.htm">docker命令简单介绍</a></p>
 </blockquote>

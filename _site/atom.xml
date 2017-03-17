@@ -3,7 +3,7 @@
 <feed>
     <id>https://byetimes.com</id>
     <title>Ben Kurtovic</title>
-    <updated>2017-03-17T17:39:00+08:00</updated>
+    <updated>2017-03-17T18:57:42+08:00</updated>
     <link href="https://byetimes.com/"/>
     <link rel="self" type="application/atom+xml" href="/atom.xml"/>
     <author>
@@ -98,6 +98,7 @@ if __name__ == &#39;__main__&#39;:
             </author>
             <summary>docker的初步应用</summary>
             <content type="html">&lt;h1 id=&quot;docker&quot;&gt;docker的环境配置&lt;/h1&gt;
+
 &lt;blockquote&gt;
   &lt;p&gt;sudo apt-get update
 sudo apt-get install docker.io&lt;/p&gt;
@@ -121,20 +122,23 @@ sudo apt-get install docker.io&lt;/p&gt;
 &lt;p&gt;docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash&lt;/p&gt;
 
 &lt;h1 id=&quot;section-1&quot;&gt;编写脚本文件&lt;/h1&gt;
-&lt;p&gt;name:up.sh
-‘’’
-#!/bin/bash&lt;/p&gt;
 
-&lt;p&gt;docker stop web
+&lt;p&gt;```
+name:up.sh
+#!/bin/bash
+docker stop web
 docker rm -v web&lt;/p&gt;
 
 &lt;p&gt;docker run –name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
-‘’’
-#命令
-1. 退出docker容器(非中断模式)
-	* ctrl + P ctrl + q&lt;/p&gt;
+```&lt;/p&gt;
 
+&lt;h1 id=&quot;section-2&quot;&gt;命令&lt;/h1&gt;
 &lt;ol&gt;
+  &lt;li&gt;退出docker容器(非中断模式)
+    &lt;ul&gt;
+      &lt;li&gt;ctrl + P ctrl + q&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;进入docker image
     &lt;ul&gt;
       &lt;li&gt;docker exec -it container_id bash #不会终止&lt;/li&gt;
@@ -162,7 +166,7 @@ docker rm -v web&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;section-2&quot;&gt;参考链接&lt;/h1&gt;
+&lt;h1 id=&quot;section-3&quot;&gt;参考链接&lt;/h1&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;a href=&quot;http://www.linuxidc.com/Linux/2015-05/117510.htm&quot;&gt;docker命令简单介绍&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
