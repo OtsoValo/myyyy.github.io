@@ -6,6 +6,21 @@
     </url>
     
         <url>
+            <loc>https://byetimes.com/2017/03/17/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://byetimes.com/2017/03/17/docker%E5%85%A5%E9%97%A8.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
+            <loc>https://byetimes.com/2017/03/15/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop.html</loc>
+            <changefreq>monthly</changefreq>
+        </url>
+    
+        <url>
             <loc>https://byetimes.com/2016/10/19/%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95.html</loc>
             <changefreq>monthly</changefreq>
         </url>

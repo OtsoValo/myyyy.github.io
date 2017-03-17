@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>new-skill-link! &ndash; good-bye</title>
+        <meta name="description" content="不断的学习，越努力越幸福。 &#124; Ben Kurtovic's blog">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/static/favicon.png" />
+        <link rel="stylesheet" href="/static/main.css" />
+        <link rel="stylesheet" href="/static/syntax.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Ben Kurtovic" />
+        <script src="//code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+        <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="/static/main.js"></script>
+    </head>
+    <body>
+        <div id="banner">
+            <a href="/">
+                <img src="/static/avatar.png" title="good bye" alt="SYFY" />
+                <h1>再 见。</h1>
+            </a>
+        </div>
+        <div id="container">
+            <h1>new-skill-link!</h1>
+<div id="content">
+    <ul id="post-info">
+        <li><span><i class="fa fa-tag"></i> Tags:</span>
+            
+                <a href="/#干货" class="post-tag">干货</a>
+            
+        <li><span><i class="fa fa-clock-o"></i> Date:</span> March 15, 2017</li>
+        <li><span><i class="fa fa-comments"></i></span> <a href="#disqus_thread">Jump to comments</a></li>
+    </ul>
+    <div id="post">
+        <h2 id="section">预备知识</h2>
+
+<ol>
+  <li>hasattr()&amp;getattr()
+    <ul>
+      <li>hasattr(object, name):判断一个对象是否有’name’属性或者’name’方法
+ *getattr(object, name[,default]):获取对象object的属性或者方法，如果存在打印出来，如果不存在，打印出默认值，默认值可选。(如果获得的是方法,则返回的是方法的内存地址,有需要运行则需要加’()’)</li>
+    </ul>
+  </li>
+  <li>classmethod &amp; staticmethod
+    <ul>
+      <li>待完善</li>
+    </ul>
+  </li>
+  <li>future模块&amp;yeild
+    <ul>
+      <li>future:Python提供了__future__模块，把下一个新版本的特性导入到当前版本</li>
+      <li>yeild: yield的英文单词意思是生产,若某个函数包含yield，这意味着这个函数已经是一个Generator<a href="http://www.pythontab.com/html/2015/pythonhexinbiancheng_0415/946.html">深入理解yield</a></li>
+    </ul>
+  </li>
+  <li>python concurrent 模块
+    <ul>
+      <li>因python GIL全局锁的机制,产生了<a href="http://www.bubuko.com/infodetail-167068.html">concurrent</a>一个实现并发的模块</li>
+    </ul>
+  </li>
+  <li>NotImplementedError()异常处理机制
+    <ul>
+      <li>NotImplemented 是一个非异常对象，NotImplementedError 是一个异常对象.<a href="http://www.tuicool.com/articles/JRb6Zr">参考链接</a>
+ *<a href="https://segmentfault.com/q/1010000005012781">tornado 预定义接口返回异常的好处</a> 
+ *<a href="https://blog.zorro.im/tornado-configurable/">tornado Configureable类</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>Synchronous(同步)&amp;Asynchronous(异步)
+ *理解概念<a href="http://www.cnblogs.com/anny0404/p/5691379.html">链接</a></p>
+  </li>
+  <li>
+    <p>fileno()文件描述符
+ *件描述符（File descriptor）是计算机科学中的一个术语，是一个用于表述指向文件的引用的抽象化概念。</p>
+
+    <ul>
+      <li>文件描述符在形式上是一个非负整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统</li>
+    </ul>
+  </li>
+  <li>
+    <p>double ckeck问题
+ <code class="highlighter-rouge">
+ if not hasattr(IOLoop, "_instance"):
+ with IOLoop._instance_lock:
+     if not hasattr(IOLoop, "_instance"):
+         # New instance after double check
+         IOLoop._instance = IOLoop()
+</code></p>
+
+    <ul>
+      <li><a href="http://www.jb51.net/article/80363.htm">torndao中单例模式的应用</a></li>
+    </ul>
+  </li>
+  <li>select、poll、epoll
+    <ul>
+      <li><a href="Linux IO模式及 select、poll、epoll详解">Linux IO模式及 select、poll、epoll详解</a></li>
+    </ul>
+  </li>
+</ol>
+
+    </div>
+    
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_shortname = 'syfy';
+            var disqus_identifier = '/2017/03/15/Tornado源码解析之IoLoop';
+            var disqus_title = 'new-skill-link!';
+            var disqus_url = 'https://byetimes.com/2017/03/15/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop.html';
+            var disqus_developer = 1;
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+</div>
+
+            <div id="footer">
+                <p>Copyright &copy; 2011&ndash;2017 再&nbsp;见 &bull; 
+                <a href="https://github.com/myyyy/myyyy.github.io">View&nbsp;Source</a> &bull; 
+                <!-- <a href="http://validator.w3.org/check?uri=referer">Valid&nbsp;HTML5</a> -->
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

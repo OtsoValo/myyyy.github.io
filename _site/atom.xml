@@ -3,7 +3,7 @@
 <feed>
     <id>https://byetimes.com</id>
     <title>Ben Kurtovic</title>
-    <updated>2017-02-20T09:40:59+08:00</updated>
+    <updated>2017-03-17T17:39:00+08:00</updated>
     <link href="https://byetimes.com/"/>
     <link rel="self" type="application/atom+xml" href="/atom.xml"/>
     <author>
@@ -13,6 +13,241 @@
     </author>
     <icon>/static/favicon.png</icon>
     <rights>© 2011–2017 Ben Kurtovic</rights>
+    
+        <entry>
+            <id>https://byetimes.com/2017/03/17/tornado设置默认403(error)页面</id>
+            <title>Tornado设置默认403(error)页面</title>
+            <updated>2017-03-17T00:00:00+08:00</updated>
+            <published>2017-03-17T00:00:00+08:00</published>
+            <link rel="alternate" type="text/html" href="/2017/03/17/tornado%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4403(error)%E9%A1%B5%E9%9D%A2.html"/>
+            <author>
+                <name>Ben Kurtovic</name>
+                <email>ben.kurtovic@gmail.com</email>
+                <uri>https://benkurtovic.com/</uri>
+            </author>
+            <summary></summary>
+            <content type="html"># coding=utf-8
+# ---
+# layout: post
+# title: tornado设置默认403(error页面)!
+# tags: [&quot;tornado&quot;]
+# description: 不断的学习，越努力越幸福。
+# ---
+import os
+import tornado
+import tornado.options
+import tornado.httpserver
+from tornado.web import RequestHandler
+from tornado.options import define, options
+
+define(&quot;port&quot;, default=1994, help=&quot;run on the given port&quot;, type=int)
+
+class BaseHandler(tornado.web.RequestHandler):
+    def write_error(self,status_code,**kwargs):
+        if status_code == 403 or 405:
+            self.write(dict(status = False,
+                data = &#39;对不起，你没有权限访问该页面；如需帮助，请联系管理员 &#39;))
+        else:
+            self.get_error_html(status_code,**kwargs)
+
+    def get_error_html(self, status_code, **kwargs):
+        template_name = &quot;{0}.html&quot;.format(status_code)
+        if not exists(template_path(template_name)):
+            template_name = &quot;error.html&quot;
+
+        if not exists(template_path(template_name)):
+            return self.write(str(status_code))
+
+        kwargs.update(
+            dict(status_code=status_code, message=responses[status_code]))
+
+        self.render(template_name, **kwargs)
+
+class IndexHandler(BaseHandler):
+    def get(self):
+        self.write(&#39;hello&#39;)
+
+handlers = [ 
+    (r&#39;/index&#39;, IndexHandler),
+    ]   
+
+settings = { 
+        &#39;template_path&#39;: os.path.join(os.path.dirname(__file__), &quot;templates&quot;),
+        &#39;static_path&#39;: os.path.join(os.path.dirname(__file__), &#39;static&#39;),
+        }
+
+if __name__ == &#39;__main__&#39;:
+        tornado.options.parse_command_line()
+        app = tornado.web.Application(handlers=handlers, **settings)
+        http_server = tornado.httpserver.HTTPServer(app)
+        http_server.listen(options.port)
+        print(options.port)
+        tornado.ioloop.IOLoop.instance().start()</content>
+        </entry>
+    
+        <entry>
+            <id>https://byetimes.com/2017/03/17/docker入门</id>
+            <title>docker入门</title>
+            <updated>2017-03-17T00:00:00+08:00</updated>
+            <published>2017-03-17T00:00:00+08:00</published>
+            <link rel="alternate" type="text/html" href="/2017/03/17/docker%E5%85%A5%E9%97%A8.html"/>
+            <author>
+                <name>Ben Kurtovic</name>
+                <email>ben.kurtovic@gmail.com</email>
+                <uri>https://benkurtovic.com/</uri>
+            </author>
+            <summary>docker的初步应用</summary>
+            <content type="html">&lt;h1 id=&quot;docker&quot;&gt;docker的环境配置&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;sudo apt-get update
+sudo apt-get install docker.io&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;docker-1&quot;&gt;docker加速器配置&lt;/h1&gt;
+
+&lt;p&gt;使用配置文件 /etc/docker/daemon.json（没有时新建该文件）
+{
+   “registry-mirrors”: [“&lt;your accelerate=&quot;&quot; address=&quot;&quot;&gt;&quot;]
+}
+注:基于阿里云的镜像加速&lt;/your&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;section&quot;&gt;下拉项目运行环境&lt;/h1&gt;
+
+&lt;p&gt;sudo docker pull registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 
+注:可跟你不同项目的需要配置不同的运行环境&lt;/p&gt;
+
+&lt;h1 id=&quot;docker-image&quot;&gt;运行docker image&lt;/h1&gt;
+
+&lt;p&gt;docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash&lt;/p&gt;
+
+&lt;h1 id=&quot;section-1&quot;&gt;编写脚本文件&lt;/h1&gt;
+&lt;p&gt;name:up.sh
+‘’’
+#!/bin/bash&lt;/p&gt;
+
+&lt;p&gt;docker stop web
+docker rm -v web&lt;/p&gt;
+
+&lt;p&gt;docker run –name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
+‘’’
+#命令
+1. 退出docker容器(非中断模式)
+	* ctrl + P ctrl + q&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;进入docker image
+    &lt;ul&gt;
+      &lt;li&gt;docker exec -it container_id bash #不会终止&lt;/li&gt;
+      &lt;li&gt;docker attach &lt;container&gt; #需要注意的是，如果从这个stdin中exit，会导致容器的停止&lt;/container&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;检查容器运行
+    &lt;ul&gt;
+      &lt;li&gt;docker ps&lt;/li&gt;
+      &lt;li&gt;docker ps -a&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;查看容器信息
+    &lt;ul&gt;
+      &lt;li&gt;docker inspect &lt;container&gt;&lt;/container&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;杀死or删除
+    &lt;ul&gt;
+      &lt;li&gt;docker stop &lt;container&gt;&lt;/container&gt;&lt;/li&gt;
+      &lt;li&gt;docker kill &lt;container&gt;&lt;/container&gt;&lt;/li&gt;
+      &lt;li&gt;docker rm &lt;container&gt;&lt;/container&gt;&lt;/li&gt;
+      &lt;li&gt;docker rm $(docker ps -aq) #移除所有&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;section-2&quot;&gt;参考链接&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://www.linuxidc.com/Linux/2015-05/117510.htm&quot;&gt;docker命令简单介绍&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</content>
+        </entry>
+    
+        <entry>
+            <id>https://byetimes.com/2017/03/15/Tornado源码解析之IoLoop</id>
+            <title>new-skill-link!</title>
+            <updated>2017-03-15T00:00:00+08:00</updated>
+            <published>2017-03-15T00:00:00+08:00</published>
+            <link rel="alternate" type="text/html" href="/2017/03/15/Tornado%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E4%B9%8BIoLoop.html"/>
+            <author>
+                <name>Ben Kurtovic</name>
+                <email>ben.kurtovic@gmail.com</email>
+                <uri>https://benkurtovic.com/</uri>
+            </author>
+            <summary>不断的学习，越努力越幸福。</summary>
+            <content type="html">&lt;h2 id=&quot;section&quot;&gt;预备知识&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;hasattr()&amp;amp;getattr()
+    &lt;ul&gt;
+      &lt;li&gt;hasattr(object, name):判断一个对象是否有’name’属性或者’name’方法
+ *getattr(object, name[,default]):获取对象object的属性或者方法，如果存在打印出来，如果不存在，打印出默认值，默认值可选。(如果获得的是方法,则返回的是方法的内存地址,有需要运行则需要加’()’)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;classmethod &amp;amp; staticmethod
+    &lt;ul&gt;
+      &lt;li&gt;待完善&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;future模块&amp;amp;yeild
+    &lt;ul&gt;
+      &lt;li&gt;future:Python提供了__future__模块，把下一个新版本的特性导入到当前版本&lt;/li&gt;
+      &lt;li&gt;yeild: yield的英文单词意思是生产,若某个函数包含yield，这意味着这个函数已经是一个Generator&lt;a href=&quot;http://www.pythontab.com/html/2015/pythonhexinbiancheng_0415/946.html&quot;&gt;深入理解yield&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;python concurrent 模块
+    &lt;ul&gt;
+      &lt;li&gt;因python GIL全局锁的机制,产生了&lt;a href=&quot;http://www.bubuko.com/infodetail-167068.html&quot;&gt;concurrent&lt;/a&gt;一个实现并发的模块&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NotImplementedError()异常处理机制
+    &lt;ul&gt;
+      &lt;li&gt;NotImplemented 是一个非异常对象，NotImplementedError 是一个异常对象.&lt;a href=&quot;http://www.tuicool.com/articles/JRb6Zr&quot;&gt;参考链接&lt;/a&gt;
+ *&lt;a href=&quot;https://segmentfault.com/q/1010000005012781&quot;&gt;tornado 预定义接口返回异常的好处&lt;/a&gt; 
+ *&lt;a href=&quot;https://blog.zorro.im/tornado-configurable/&quot;&gt;tornado Configureable类&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Synchronous(同步)&amp;amp;Asynchronous(异步)
+ *理解概念&lt;a href=&quot;http://www.cnblogs.com/anny0404/p/5691379.html&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;fileno()文件描述符
+ *件描述符（File descriptor）是计算机科学中的一个术语，是一个用于表述指向文件的引用的抽象化概念。&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;文件描述符在形式上是一个非负整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。当程序打开一个现有文件或者创建一个新文件时，内核向进程返回一个文件描述符。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;double ckeck问题
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;
+ if not hasattr(IOLoop, &quot;_instance&quot;):
+ with IOLoop._instance_lock:
+     if not hasattr(IOLoop, &quot;_instance&quot;):
+         # New instance after double check
+         IOLoop._instance = IOLoop()
+&lt;/code&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.jb51.net/article/80363.htm&quot;&gt;torndao中单例模式的应用&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;select、poll、epoll
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;Linux IO模式及 select、poll、epoll详解&quot;&gt;Linux IO模式及 select、poll、epoll详解&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        </entry>
     
         <entry>
             <id>https://byetimes.com/2016/10/19/动态获取对象属性方法</id>

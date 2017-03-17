@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>docker入门 &ndash; good-bye</title>
+        <meta name="description" content="docker的初步应用 &#124; Ben Kurtovic's blog">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/static/favicon.png" />
+        <link rel="stylesheet" href="/static/main.css" />
+        <link rel="stylesheet" href="/static/syntax.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Ben Kurtovic" />
+        <script src="//code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+        <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="/static/main.js"></script>
+    </head>
+    <body>
+        <div id="banner">
+            <a href="/">
+                <img src="/static/avatar.png" title="good bye" alt="SYFY" />
+                <h1>再 见。</h1>
+            </a>
+        </div>
+        <div id="container">
+            <h1>docker入门</h1>
+<div id="content">
+    <ul id="post-info">
+        <li><span><i class="fa fa-tag"></i> Tags:</span>
+            
+                <a href="/#docker" class="post-tag">docker</a>
+            
+        <li><span><i class="fa fa-clock-o"></i> Date:</span> March 17, 2017</li>
+        <li><span><i class="fa fa-comments"></i></span> <a href="#disqus_thread">Jump to comments</a></li>
+    </ul>
+    <div id="post">
+        <h1 id="docker">docker的环境配置</h1>
+<blockquote>
+  <p>sudo apt-get update
+sudo apt-get install docker.io</p>
+</blockquote>
+
+<h1 id="docker-1">docker加速器配置</h1>
+
+<p>使用配置文件 /etc/docker/daemon.json（没有时新建该文件）
+{
+   “registry-mirrors”: [“<your accelerate="" address="">"]
+}
+注:基于阿里云的镜像加速</your></p>
+
+<h1 id="section">下拉项目运行环境</h1>
+
+<p>sudo docker pull registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 
+注:可跟你不同项目的需要配置不同的运行环境</p>
+
+<h1 id="docker-image">运行docker image</h1>
+
+<p>docker run –name web -ti registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash</p>
+
+<h1 id="section-1">编写脚本文件</h1>
+<p>name:up.sh
+‘’’
+#!/bin/bash</p>
+
+<p>docker stop web
+docker rm -v web</p>
+
+<p>docker run –name web -ti -p 8887:8887 -p 8888:8888 -v /home/suyf/swork/git:/app registry.cn-hangzhou.aliyuncs.com/zhangxj/smartbow-web:0.2 bash
+‘’’
+#命令
+1. 退出docker容器(非中断模式)
+	* ctrl + P ctrl + q</p>
+
+<ol>
+  <li>进入docker image
+    <ul>
+      <li>docker exec -it container_id bash #不会终止</li>
+      <li>docker attach <container> #需要注意的是，如果从这个stdin中exit，会导致容器的停止</container></li>
+    </ul>
+  </li>
+  <li>检查容器运行
+    <ul>
+      <li>docker ps</li>
+      <li>docker ps -a</li>
+    </ul>
+  </li>
+  <li>查看容器信息
+    <ul>
+      <li>docker inspect <container></container></li>
+    </ul>
+  </li>
+  <li>杀死or删除
+    <ul>
+      <li>docker stop <container></container></li>
+      <li>docker kill <container></container></li>
+      <li>docker rm <container></container></li>
+      <li>docker rm $(docker ps -aq) #移除所有</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="section-2">参考链接</h1>
+<blockquote>
+  <p><a href="http://www.linuxidc.com/Linux/2015-05/117510.htm">docker命令简单介绍</a></p>
+</blockquote>
+
+
+    </div>
+    
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_shortname = 'syfy';
+            var disqus_identifier = '/2017/03/17/docker入门';
+            var disqus_title = 'docker入门';
+            var disqus_url = 'https://byetimes.com/2017/03/17/docker%E5%85%A5%E9%97%A8.html';
+            var disqus_developer = 1;
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+</div>
+
+            <div id="footer">
+                <p>Copyright &copy; 2011&ndash;2017 再&nbsp;见 &bull; 
+                <a href="https://github.com/myyyy/myyyy.github.io">View&nbsp;Source</a> &bull; 
+                <!-- <a href="http://validator.w3.org/check?uri=referer">Valid&nbsp;HTML5</a> -->
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
