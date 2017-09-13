@@ -12,17 +12,17 @@ class Solution:
                         status=True
                     else:
                         _index=no
-        a_len = len(array)
+        a_len = len(array)-1
         print _index,a_len,range(1,a_len)
         _list = range(_index)
         if _index:
-            for i in range(3):
-                print i
+            import pdb;pdb.set_trace()
+            for i in range(1,a_len):
                 for j in _list:
-                    print array[i][j]
+                    print array[i][j],i,j
                     if target==array[i][j]:
                         status=True
-		return status
+                        return status
 
 if  __name__ == '__main__':
     print Solution().Find(7,[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]])
